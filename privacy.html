@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy — PlusOne</title>
+<style>
+:root {
+    --bg: #fafaf8;
+    --text: #1a1a1a;
+    --text-secondary: #555;
+    --accent: #2255aa;
+    --border: #e0e0dc;
+    --card: #ffffff;
+    --warn-bg: #fff3cd;
+    --warn-text: #7a0000;
+    --warn-border: #d9a300;
+}
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg: #16171a;
+        --text: #e8e8e6;
+        --text-secondary: #a8a8a4;
+        --accent: #6fa8f0;
+        --border: #2e2f33;
+        --card: #1e1f23;
+        --warn-bg: #3a2a00;
+        --warn-text: #ffcf6b;
+        --warn-border: #b8860b;
+    }
+}
+* { box-sizing: border-box; }
+body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+}
+.page {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 32px 20px 80px;
+}
+nav.top {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 16px 20px 0;
+    font-size: 15px;
+}
+nav.top a {
+    color: var(--accent);
+    text-decoration: none;
+    margin-right: 18px;
+}
+nav.top a:hover { text-decoration: underline; }
+h1 {
+    font-size: 28px;
+    margin: 8px 0 4px;
+    line-height: 1.25;
+}
+h2 {
+    font-size: 19px;
+    margin: 36px 0 10px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--border);
+}
+p { margin: 12px 0; font-size: 16px; }
+p:first-of-type { color: var(--text-secondary); font-size: 15px; }
+ul { padding-left: 22px; }
+li { margin: 8px 0; font-size: 16px; }
+a { color: var(--accent); }
+strong { font-weight: 650; }
+.updated {
+    color: var(--text-secondary);
+    font-size: 14px;
+    margin-bottom: 28px;
+}
+.card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px 28px 8px;
+}
+.tofill {
+    background: var(--warn-bg);
+    color: var(--warn-text);
+    border: 2px solid var(--warn-border);
+    border-radius: 4px;
+    padding: 1px 6px;
+    font-weight: 700;
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    font-size: 0.92em;
+}
+footer.site {
+    max-width: 680px;
+    margin: 40px auto 0;
+    padding: 20px 20px 0;
+    border-top: 1px solid var(--border);
+    color: var(--text-secondary);
+    font-size: 13px;
+}
+.index-links {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 24px;
+}
+.index-links a {
+    display: block;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px 18px;
+    text-decoration: none;
+    color: var(--text);
+    font-size: 17px;
+    font-weight: 600;
+}
+.index-links a:hover { border-color: var(--accent); }
+.index-links span {
+    display: block;
+    font-weight: 400;
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-top: 4px;
+}
+</style>
+</head>
+<body>
+<nav class="top"><a href="index.html">PlusOne Legal</a></nav>
+<div class="page">
+<div class="card">
+<h1>PlusOne Privacy Policy</h1>
+<p><strong>Last updated: August 19, 2026</strong></p>
+<h2>The short version</h2>
+<p>PlusOne doesn't have a server. There's no account to create, no database somewhere with your name on it, and nothing to breach. Everything PlusOne knows — your name, who you've paired with, the messages you've written, and how each one feels as a vibration — lives on your phone. Nobody sends it anywhere, because there's nowhere for it to go.</p>
+<p>One optional feature changes that, described plainly below, and it's off unless you turn it on.</p>
+<h2>What PlusOne does</h2>
+<p>PlusOne lets a small group of people you choose send you short, pre-agreed messages as patterns of vibration, so you can receive them without looking at your phone. You can also be one of those senders for someone else. That's the whole product.</p>
+<h2>What's stored, and where</h2>
+<p>Everything below lives in standard iOS local storage on your own device (<code>UserDefaults</code>, or the iOS Keychain for one item noted separately):</p>
+<ul>
+<li><strong>Your display name</strong>, exactly as you typed it.</li>
+<li><strong>The people you've paired with</strong> — their name and a device-generated identifier used to verify messages are really from them. Not their phone number, email, or any account — PlusOne doesn't have accounts, so there's nothing like that to store.</li>
+<li><strong>Your message list</strong> ("cue sheet") — the actual text of the messages you're willing to receive.</li>
+<li><strong>The private mapping between each message and its vibration pattern.</strong> This is the one piece of information that's genuinely yours alone: it's decided on your device, and it's never transmitted anywhere, to anyone, under any circumstance — not to the people you're paired with, not to us, not to a server. They see the message text; only you know what it feels like.</li>
+<li><strong>A local history of cues you've received</strong> — date, sender's name, and message text — so you can check what you missed after a meeting. You can clear this from within the app.</li>
+<li><strong>A signing key</strong> that lets paired devices verify messages are really from you. Unlike everything else on this list, this key is deliberately excluded from iCloud and iTunes backups — it never leaves the physical device, even in an encrypted backup. If you restore a backup onto a new phone, you'll need to re-pair with everyone; your identity doesn't carry over, on purpose.</li>
+<li><strong>An enterprise license key</strong>, if you've entered one. This just unlocks features on your own device — it isn't checked against any server.</li>
+</ul>
+<p>Everything else on this list — your name, pairings, and messages — is included in a standard encrypted iCloud or iTunes backup of your phone, the same as any other app's local data. That's Apple's backup system, not something PlusOne sends anywhere itself.</p>
+<h2>What gets shared with the people you pair with</h2>
+<p>This is different from data going to us or to a third party — it's the app doing its job.</p>
+<p>When you pair with someone, your display name and the message text you've written are shared directly with their device, because they need to know what they can send you. This happens device-to-device (over Bluetooth or local Wi-Fi, or through a QR code you show them in person) — never through a server, and never through us.</p>
+<p>When someone actually sends you a message, even less travels: just a signed reference to which message it is, since both devices already know the shared list. The vibration pattern itself is never part of that — see above.</p>
+<p>Your phone's device name (the same name you'd see in iOS Settings, like "Ben's iPhone") is visible to a device you're actively pairing with, the same way it would be over AirDrop or any other Bluetooth connection.</p>
+<h2>Permissions PlusOne asks for</h2>
+<p>Every one of these is optional in the sense that declining it just means that part of the app doesn't work — nothing else breaks, and nothing is collected as a side effect of asking.</p>
+<ul>
+<li><strong>Camera.</strong> Used only to scan a pairing QR code shown by someone else's phone. PlusOne doesn't access your photo library and doesn't use the camera for anything else.</li>
+<li><strong>Local Network.</strong> Used to find and connect directly to a paired device's phone when you're in the same place — the same kind of local, device-to-device connection Bluetooth or AirDrop uses. No internet connection is involved in this.</li>
+<li><strong>Notifications.</strong> Used for two things: telling you if a "Meeting Mode" session unexpectedly disconnects, and — only if you've enabled the optional relay feature below — a generic "you have a cue" alert if a message arrives while the app isn't open. Notifications never contain the message content itself.</li>
+</ul>
+<h2>The one optional feature that involves a server</h2>
+<p>PlusOne can optionally reach people who aren't in the same room, using a relay server. This is an enterprise feature (not something available in the standard App Store version), and it's off by default. It only does anything if you — or your organization — deploy your own relay server and enter its address in Settings.</p>
+<p>If you turn this on:</p>
+<ul>
+<li>The relay sees an opaque routing identifier (a one-way cryptographic hash — it can't be reversed into your real identity) and a signed, padded message envelope. For an individual cue, that's a message index and a timestamp, not the message text. For syncing your message list to someone you've authorized, the message text is included, signed so it can't be tampered with in transit.</li>
+<li>The relay is not operated by us. It's infrastructure your organization runs and controls. We don't have access to it.</li>
+<li>If you've also allowed notifications, and a message can't be delivered directly, the relay can ask Apple's Push Notification service to send you a generic alert. Apple receives a device identifier for this — never message content. That's governed by <a href="https://www.apple.com/legal/privacy/">Apple's own privacy policy</a>, not ours.</li>
+</ul>
+<p>If you never turn this feature on, none of the above applies to you.</p>
+<h2>Third-party sharing</h2>
+<p>None. PlusOne has no analytics, no advertising, no crash reporting, and no third-party SDKs of any kind. Nothing about your use of the app is sold, shared, or sent to anyone for marketing or tracking purposes.</p>
+<h2>How to delete your data</h2>
+<p>Delete the app. Since everything lives locally, that removes all of it. You can also remove an individual paired contact or message from within the app at any time, without needing to delete anything else.</p>
+<h2>Children's privacy</h2>
+<p>PlusOne isn't directed at children and doesn't knowingly collect information from anyone, of any age — there's no account system and nothing to collect in the first place.</p>
+<h2>Changes to this policy</h2>
+<p>If this policy changes, the "Last updated" date at the top will change with it. We'll describe what actually changed in the app's release notes if the change is meaningful.</p>
+<h2>Contact</h2>
+<p>Ben Purser, an individual developer (not a company), built PlusOne. If you have a question about this policy, reach out at <strong>snowy.woods.software.development@gmail.com</strong>.</p>
+</div>
+</div>
+<footer class="site">PlusOne is developed by Ben Purser, an individual developer, not a company.</footer>
+</body>
+</html>
