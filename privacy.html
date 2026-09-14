@@ -133,43 +133,43 @@ footer.site {
 <div class="page">
 <div class="card">
 <h1>PlusOne Privacy Policy</h1>
-<p><strong>Last updated: August 19, 2026</strong></p>
+<p><strong>Last updated: September 14, 2026</strong></p>
 <h2>The short version</h2>
 <p>PlusOne doesn't have a server. There's no account to create, no database somewhere with your name on it, and nothing to breach. Everything PlusOne knows — your name, who you've paired with, the messages you've written, and how each one feels as a vibration — lives on your phone. Nobody sends it anywhere, because there's nowhere for it to go.</p>
 <p>One optional feature changes that, described plainly below, and it's off unless you turn it on.</p>
 <h2>What PlusOne does</h2>
 <p>PlusOne lets a small group of people you choose send you short, pre-agreed messages as patterns of vibration, so you can receive them without looking at your phone. You can also be one of those senders for someone else. That's the whole product.</p>
 <h2>What's stored, and where</h2>
-<p>Everything below lives in standard iOS local storage on your own device (<code>UserDefaults</code>, or the iOS Keychain for one item noted separately):</p>
+<p>Everything below lives in standard iOS local storage on your own device (<code>UserDefaults</code> — including a space shared only with this app's own notification extension — or the iOS Keychain for the two items noted separately):</p>
 <ul>
 <li><strong>Your display name</strong>, exactly as you typed it.</li>
 <li><strong>The people you've paired with</strong> — their name and a device-generated identifier used to verify messages are really from them. Not their phone number, email, or any account — PlusOne doesn't have accounts, so there's nothing like that to store.</li>
 <li><strong>Your message list</strong> ("cue sheet") — the actual text of the messages you're willing to receive.</li>
 <li><strong>The private mapping between each message and its vibration pattern.</strong> This is the one piece of information that's genuinely yours alone: it's decided on your device, and it's never transmitted anywhere, to anyone, under any circumstance — not to the people you're paired with, not to us, not to a server. They see the message text; only you know what it feels like.</li>
-<li><strong>A local history of cues you've received</strong> — date, sender's name, and message text — so you can check what you missed after a meeting. You can clear this from within the app.</li>
-<li><strong>A signing key</strong> that lets paired devices verify messages are really from you. Unlike everything else on this list, this key is deliberately excluded from iCloud and iTunes backups — it never leaves the physical device, even in an encrypted backup. If you restore a backup onto a new phone, you'll need to re-pair with everyone; your identity doesn't carry over, on purpose.</li>
-<li><strong>An enterprise license key</strong>, if you've entered one. This just unlocks features on your own device — it isn't checked against any server.</li>
+<li><strong>A history of cues you've received, while the app is running.</strong> By default this is ephemeral: it exists only in memory for as long as the app is running and is gone the next time it starts, on purpose. If your organization uses mobile device management (MDM) and has turned on a retention policy, this history is instead kept on your device for the retention period they set, and you can view or clear it yourself at any time in Settings → "Cue history." Either way, this never leaves your device — it isn't sent to us or to anyone else.</li>
+<li><strong>A signing key and a separate key-agreement key</strong> that let paired devices verify messages are really from you and encrypt what they send you. Both live in the iOS Keychain, set to never sync to iCloud and never leave this physical device, even in an encrypted backup. If you restore a backup onto a new phone, you'll need to re-pair with everyone; your identity doesn't carry over, on purpose.</li>
+<li><strong>A small snapshot for notifications</strong> — your paired contacts' public keys (not secret; used to verify who sent something) and your own message text — kept in a space this app shares only with its own Notification Service Extension, so a cue arriving while the app isn't open can be decrypted and (if you've allowed it — see below) shown on your lock screen without a network call. No private key is in this snapshot.</li>
+<li><strong>An enterprise license key</strong>, if you've entered one. This just unlocks features on your own device — it isn't checked against any server. There is no license server; we have no way to know remotely whether or how a key is being used.</li>
 </ul>
-<p>Everything else on this list — your name, pairings, and messages — is included in a standard encrypted iCloud or iTunes backup of your phone, the same as any other app's local data. That's Apple's backup system, not something PlusOne sends anywhere itself.</p>
+<p>Everything else on this list — your name, pairings, and messages, and the notification snapshot — is included in a standard encrypted iCloud or iTunes backup of your phone, the same as any other app's local data. That's Apple's backup system, not something PlusOne sends anywhere itself. The two Keychain-stored keys are the one exception: those are excluded from backups entirely.</p>
 <h2>What gets shared with the people you pair with</h2>
 <p>This is different from data going to us or to a third party — it's the app doing its job.</p>
 <p>When you pair with someone, your display name and the message text you've written are shared directly with their device, because they need to know what they can send you. This happens device-to-device (over Bluetooth or local Wi-Fi, or through a QR code you show them in person) — never through a server, and never through us.</p>
 <p>When someone actually sends you a message, even less travels: just a signed reference to which message it is, since both devices already know the shared list. The vibration pattern itself is never part of that — see above.</p>
-<p>Your phone's device name (the same name you'd see in iOS Settings, like "Ben's iPhone") is visible to a device you're actively pairing with, the same way it would be over AirDrop or any other Bluetooth connection.</p>
 <h2>Permissions PlusOne asks for</h2>
 <p>Every one of these is optional in the sense that declining it just means that part of the app doesn't work — nothing else breaks, and nothing is collected as a side effect of asking.</p>
 <ul>
 <li><strong>Camera.</strong> Used only to scan a pairing QR code shown by someone else's phone. PlusOne doesn't access your photo library and doesn't use the camera for anything else.</li>
 <li><strong>Local Network.</strong> Used to find and connect directly to a paired device's phone when you're in the same place — the same kind of local, device-to-device connection Bluetooth or AirDrop uses. No internet connection is involved in this.</li>
-<li><strong>Notifications.</strong> Used for two things: telling you if a "Meeting Mode" session unexpectedly disconnects, and — only if you've enabled the optional relay feature below — a generic "you have a cue" alert if a message arrives while the app isn't open. Notifications never contain the message content itself.</li>
+<li><strong>Notifications.</strong> Used for two things: telling you if a "Meeting Mode" session unexpectedly disconnects, and — only if you've enabled the optional relay feature below — an alert if a message arrives while the app isn't open. That alert is decrypted and matched to your own message text on your device, by an extension that never talks to a network; whether it's allowed to actually show that text on your lock screen, per sender, is a setting that <strong>defaults to off</strong> — until you turn it on for someone, an arriving cue shows only a generic "you have a cue," precisely so a message can't be read off a locked screen over your shoulder. Notifications never contain anything your device hasn't already decrypted and verified itself.</li>
 </ul>
 <h2>The one optional feature that involves a server</h2>
 <p>PlusOne can optionally reach people who aren't in the same room, using a relay server. This is an enterprise feature (not something available in the standard App Store version), and it's off by default. It only does anything if you — or your organization — deploy your own relay server and enter its address in Settings.</p>
 <p>If you turn this on:</p>
 <ul>
-<li>The relay sees an opaque routing identifier (a one-way cryptographic hash — it can't be reversed into your real identity) and a signed, padded message envelope. For an individual cue, that's a message index and a timestamp, not the message text. For syncing your message list to someone you've authorized, the message text is included, signed so it can't be tampered with in transit.</li>
-<li>The relay is not operated by us. It's infrastructure your organization runs and controls. We don't have access to it.</li>
-<li>If you've also allowed notifications, and a message can't be delivered directly, the relay can ask Apple's Push Notification service to send you a generic alert. Apple receives a device identifier for this — never message content. That's governed by <a href="https://www.apple.com/legal/privacy/">Apple's own privacy policy</a>, not ours.</li>
+<li>The relay sees a sealed envelope and nothing else: a routing identifier that's rotated and re-derived every hour and is different for each direction of a conversation, plus a fixed-size (always exactly the same length, whatever the message) block of encrypted bytes, a random nonce, and a signature. It cannot read which message you sent, cannot see a timestamp inside that envelope, and cannot tell two of your conversations apart from each other or link them over time — a new, unrelated-looking identifier is used every hour. Everything it can act on is opaque to it; only the two paired devices can open it.</li>
+<li>The relay is not operated by us. It's infrastructure your organization runs and controls. We don't have access to it. By default it isn't even asked to prove who's talking to it — an organization can optionally require a shared secret before the relay will talk to a device, but that's off unless your organization turns it on.</li>
+<li>If you've also allowed notifications, and a message can't be delivered directly, the relay can ask Apple's Push Notification service to send you an alert. Apple receives a device identifier and the same sealed, unreadable envelope — never anything Apple, or the relay, can decrypt. That's governed by <a href="https://www.apple.com/legal/privacy/">Apple's own privacy policy</a>, not ours.</li>
 </ul>
 <p>If you never turn this feature on, none of the above applies to you.</p>
 <h2>Third-party sharing</h2>
